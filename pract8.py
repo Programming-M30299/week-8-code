@@ -1,40 +1,34 @@
-def sayHello():
-    print("Hello World")
+from random import randint, random
 
 
-def sayHello2():
-    print("Hello")
-    print("World")
+def tenCoinFlips():
+    for i in range(10):
+        randomNumber = randint(1, 2)
+        if randomNumber == 1:
+            print("Heads")
+        else:
+            print("Tails")
 
 
-def sayBye():
-    print("Goodbye Mars")
+def tenDiceRolls():
+    for i in range(10):
+        diceRoll = randint(1, 6)
+        print(diceRoll)
 
 
-# TODO: Write `sayBye2` function here
+def tenBiasedCoinFlips():
+    headsCount = 0
+    totalFlips = 10
+    for i in range(totalFlips):
+        randomNumber = random()
+        if randomNumber < 0.85:
+            print("Heads")
+            headsCount += 1
+        else:
+            print("Tails")
+    print("Heads count: ", headsCount)
+    # Every time we didn't have heads, we had tails
+    print("Tails count: ", totalFlips - headsCount)
 
 
-# A simple kilograms to ounces conversion program
-# It asks for a weight in kilograms (for example 10)
-# and converts it to ounces (352.74)
-def kilos2Ounces():
-    kilos = float(input("Enter a weight in kilograms: "))
-    ounces = kilos * 35.274
-    print("The weight in ounces is", ounces)
-
-
-def count():
-    for number in range(10):
-        print("Number is now: ", number)
-
-
-# A simple euros to pounds conversion program
-# It asks for a value in euros (for example 10)
-# and converts it to pounds (8.7)
-def euros2Pounds():
-    euros = float(input("Enter a value in euros: "))
-    pounds = euros * 0.87
-    print("The value in pounds is", pounds)
-
-
-# TODO: Write `dollars2Pounds` and the rest of your solutions for the programming exercises here
+tenBiasedCoinFlips()
