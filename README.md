@@ -1,6 +1,6 @@
 # Code from Week 8
 
-A repository containing the examples from the worksheet.
+A repository containing the examples from the worksheet and the lectures.
 
 ## Contents
 
