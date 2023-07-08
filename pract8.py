@@ -29,6 +29,3 @@ def tenBiasedCoinFlips():
     print("Heads count: ", headsCount)
     # Every time we didn't have heads, we had tails
     print("Tails count: ", totalFlips - headsCount)
-
-
-tenBiasedCoinFlips()
