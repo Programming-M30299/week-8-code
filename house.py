@@ -2,6 +2,7 @@ from graphics import *
 
 
 def main():
+    # `getInputs` returns two values, so we need to receive them both
     doorColour, lightsOn = getInputs()
     drawHouse(doorColour, lightsOn)
 
@@ -9,7 +10,9 @@ def main():
 def getInputs():
     doorColour = input("Enter door colour: ")
     lightsYN = input("Are the lights on (y/n): ")
+    # Check if the first character (index 0) of lightsOn is "y"
     lightsOn = lightsYN[0] == "y"
+    # We are returning two values (observe how we receive them in main)
     return doorColour, lightsOn
 
 
