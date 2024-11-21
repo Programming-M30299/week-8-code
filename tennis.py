@@ -1,42 +1,43 @@
+from random import random
+
+
 def main():
-    prWinPt, numGames = getInputs()
-    wins = simulateNGames(prWinPt, numGames)
-    printSummary(wins, numGames)
+    pr_win_pt, num_games = get_inputs()
+    wins = simulate_n_games(pr_win_pt, num_games)
+    print_summary(wins, num_games)
 
 
-def getInputs():
-    prWinPt = float(
+def get_inputs():
+    pr_win_pt = float(
         input("Probability of winning a point (a float between 0 and 1): "))
-    numGames = int(input("Number of games to simulate (a positive integer): "))
-    return prWinPt, numGames
+    num_games = int(
+        input("Number of games to simulate (a positive integer): "))
+    return pr_win_pt, num_games
 
 
-def simulateNGames(prWinPt, numGames):
+def simulate_n_games(pr_win_pt, num_games):
     wins = 0
-    for game in range(numGames):
-        pointsPl, pointsOp = simulateGame(prWinPt)
-        if pointsPl > pointsOp:
-            wins = wins + 1
+    for game in range(num_games):
+        points_pl, points_op = simulate_game(pr_win_pt)
+        if points_pl > points_op:
+            wins += 1
     return wins
 
 
-def simulateGame(prWinPt):
-    from random import random
-    pointsPl, pointsOp = 0, 0
-    while not gameOver(pointsPl, pointsOp):
-        if random() < prWinPt:
-            pointsPl = pointsPl + 1
+def simulate_game(pr_win_pt):
+    points_pl, points_op = 0, 0
+    while not game_over(points_pl, points_op):
+        if random() < pr_win_pt:
+            points_pl += 1
         else:
-            pointsOp = pointsOp + 1
-    return pointsPl, pointsOp
+            points_op += 1
+    return points_pl, points_op
 
 
-def gameOver(pointsPl, pointsOp):
-    return (pointsPl >= 4 or pointsOp >= 4) and  \
-        abs(pointsPl - pointsOp) >= 2
+def game_over(points_pl, points_op):
+    return (points_pl >= 4 or points_op >= 4) and abs(points_pl - points_op) >= 2
 
 
-def printSummary(wins, numGames):
-    proportion = wins / numGames
-    print("Wins:", wins, end="  ")
-    print("Proportion: {0:0.2f}".format(proportion))
+def print_summary(wins, num_games):
+    print(f"Wins: {wins}")
+    print(f"Total games: {num_games}")
