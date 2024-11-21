@@ -1,43 +1,45 @@
-from graphics import *
+from graphix import Window, Point, Rectangle, Polygon
 
 
 def main():
-    # `getInputs` returns two values, so we need to receive them both
-    doorColour, lightsOn = getInputs()
-    drawHouse(doorColour, lightsOn)
+    # `get_inputs` returns two values, so we need to receive them both
+    door_colour, lights_on = get_inputs()
+    draw_house(door_colour, lights_on)
 
 
-def getInputs():
-    doorColour = input("Enter door colour: ")
-    lightsYN = input("Are the lights on (y/n): ")
-    # Check if the first character (index 0) of lightsOn is "y"
-    lightsOn = lightsYN[0] == "y"
-    # We are returning two values (observe how we receive them in main)
-    return doorColour, lightsOn
+def get_inputs():
+    door_colour = input("Enter door colour: ")
+    lights_yn = input("Are the lights on (y/n): ")
+    # Check if the first character (index 0) of lights_yn is "y"
+    if lights_yn[0] == "y":
+        lights_on = True
+    else:
+        lights_on = False
+    # We are returning two values (observe how we receive them in `main`)
+    return door_colour, lights_on
 
 
-def drawHouse(doorColour, lightsOn):
-    win = GraphWin("House", 200, 200)
-
-    roof = Polygon(Point(2, 60), Point(42, 2),
-                   Point(158, 2), Point(198, 60))
-    roof.setFill("pink")
+def draw_house(door_colour, lights_on):
+    win = Window("House", 200, 200)
+    list_of_points = [Point(100, 100), Point(150, 50), Point(200, 100)]
+    roof = Polygon(list_of_points)
+    roof.fill_colour = "pink"
     roof.draw(win)
 
     # draw wall and door
-    drawRectangle(win, Point(2, 60), Point(198, 198), "brown")
-    drawRectangle(win, Point(30, 110), Point(80, 198), doorColour)
+    draw_rectangle(win, Point(2, 60), Point(198, 198), "brown")
+    draw_rectangle(win, Point(30, 110), Point(80, 198), door_colour)
 
     # draw window
-    if lightsOn:
-        windowColour = "yellow"
+    if lights_on:
+        window_colour = "yellow"
     else:
-        windowColour = "black"
-    drawRectangle(win, Point(110, 110), Point(170, 170), windowColour)
+        window_colour = "black"
+    draw_rectangle(win, Point(110, 110), Point(170, 170), window_colour)
 
 
-def drawRectangle(win, point1, point2, colour):
+def draw_rectangle(win, point1, point2, colour):
     rectangle = Rectangle(point1, point2)
-    rectangle.setFill(colour)
-    rectangle.setOutline(colour)
+    rectangle.fill_colour = colour
+    rectangle.outline_colour = colour
     rectangle.draw(win)
