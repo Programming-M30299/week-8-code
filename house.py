@@ -38,14 +38,9 @@ def draw_house(door_colour, lights_on):
         window_colour = "black"
     draw_rectangle(win, Point(110, 110), Point(170, 170), window_colour)
 
-    win.get_mouse()
-
 
 def draw_rectangle(win, point1, point2, colour):
     rectangle = Rectangle(point1, point2)
     rectangle.fill_colour = colour
     rectangle.outline_colour = colour
     rectangle.draw(win)
-
-
-main()
