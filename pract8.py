@@ -1,31 +1,31 @@
 from random import randint, random
 
 
-def tenCoinFlips():
+def ten_coin_flips():
     for i in range(10):
-        randomNumber = randint(1, 2)
-        if randomNumber == 1:
+        random_number = randint(1, 2)
+        if random_number == 1:
             print("Heads")
         else:
             print("Tails")
 
 
-def tenDiceRolls():
+def ten_dice_rolls():
     for i in range(10):
-        diceRoll = randint(1, 6)
-        print(diceRoll)
+        dice_roll = randint(1, 6)
+        print(dice_roll)
 
 
-def tenBiasedCoinFlips():
-    headsCount = 0
-    totalFlips = 10
-    for i in range(totalFlips):
-        randomNumber = random()
-        if randomNumber < 0.85:
+def ten_biased_coin_flips():
+    heads_count = 0
+    total_flips = 10
+    for i in range(total_flips):
+        random_number = random()
+        if random_number < 0.85:
             print("Heads")
-            headsCount += 1
+            heads_count += 1
         else:
             print("Tails")
-    print("Heads count: ", headsCount)
+    print(f"Heads count: {heads_count}")
     # Every time we didn't have heads, we had tails
-    print("Tails count: ", totalFlips - headsCount)
+    print(f"Tails count: {total_flips - heads_count}")
