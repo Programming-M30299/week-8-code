@@ -21,9 +21,10 @@ def get_inputs():
 
 def draw_house(door_colour, lights_on):
     win = Window("House", 200, 200)
-    list_of_points = [Point(100, 100), Point(150, 50), Point(200, 100)]
+    list_of_points = [Point(0, 60), Point(100, 0), Point(200, 60)]
     roof = Polygon(list_of_points)
     roof.fill_colour = "pink"
+    roof.outline_colour = "pink"
     roof.draw(win)
 
     # draw wall and door
@@ -37,9 +38,14 @@ def draw_house(door_colour, lights_on):
         window_colour = "black"
     draw_rectangle(win, Point(110, 110), Point(170, 170), window_colour)
 
+    win.get_mouse()
+
 
 def draw_rectangle(win, point1, point2, colour):
     rectangle = Rectangle(point1, point2)
     rectangle.fill_colour = colour
     rectangle.outline_colour = colour
     rectangle.draw(win)
+
+
+main()
