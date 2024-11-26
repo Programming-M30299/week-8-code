@@ -44,3 +44,6 @@ def draw_rectangle(win, point1, point2, colour):
     rectangle.fill_colour = colour
     rectangle.outline_colour = colour
     rectangle.draw(win)
+
+
+main()
