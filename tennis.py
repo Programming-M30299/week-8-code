@@ -41,3 +41,6 @@ def main():
     point_win_probability, number_of_games = get_inputs()
     wins = simulate_games(point_win_probability, number_of_games)
     print_summary(wins, number_of_games)
+
+
+main()
